@@ -1,4 +1,7 @@
 # Getting Started with Create React App
+## features
+1 : Redux Toolkit
+2 : Materiel Mui 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
