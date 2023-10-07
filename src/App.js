@@ -8,6 +8,7 @@ import {
   Paper,
   styled,
 } from "@mui/material";
+import CustomizedSwitches from "./theme/ThemeBtn.jsx";
 import { calculate } from "./store/Toolkit";
 import {
   setPrevValue,
@@ -21,9 +22,8 @@ import {
 } from "./store/Toolkit";
 import DigitButton from "./componentes/DigitButton";
 import OperationBtn from "./componentes/OperationBtn";
-import Header from "./componentes/Header.jsx";
 import { useTheme } from "./theme/ThemeProvider";
-import backimg from "./img/back1.jpg";
+import backimg from "./img/rupixen-com-7B-ivTcS3Lg-unsplash.jpg";
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
@@ -43,7 +43,7 @@ const OutputContainer = styled(`div`)(({ theme }) => ({
 }));
 const CalculatorBase = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(5),
-  margin: theme.spacing(4),
+  margin: theme.spacing(3),
 }));
 const OperationText = styled(`div`)({
   position: "relative",
@@ -55,7 +55,6 @@ const OperationText = styled(`div`)({
   backgroundColor: "#dddd",
   borderRadius: "4px",
 });
-
 function App() {
   const dispatch = useDispatch();
   const { prevValue, currentValue, operation, overwrite } = useSelector(
@@ -74,20 +73,19 @@ function App() {
     }
     dispatch(setOperation(x));
     dispatch(setOverwrite(true));
-  };
 
+    console.log(`currentValue11 is : ${currentValue}`);
+    console.log(`prev is11 : ${prevValue}`);
+  };
   const handleClear = () => {
     dispatch(clear());
   };
-
   const handleDel = () => {
     dispatch(del());
   };
-
   const handlePercent = () => {
     dispatch(percent());
   };
-
   const setDigit = (digit) => {
     if (currentValue[0] === "0" && digit === "0") return;
     if (currentValue.includes(".") && digit === ".") return;
@@ -98,42 +96,45 @@ function App() {
       dispatch(setCurrentValue(`${currentValue}${digit}`));
     }
     dispatch(setOverwrite(false));
+    console.log(`digigt0 is : ${digit}`);
+    console.log(`currentValue0 is : ${currentValue}`);
+    console.log(`prev0 is : ${prevValue}`);
   };
-
   const { theme } = useTheme();
   const appliedTheme = createTheme({
     palette: {
       mode: theme,
       primary: {
-        main: "#006064",
+        main: "#0a0a0a",
       },
     },
   });
-
   return (
     <MuiThemeProvider theme={appliedTheme}>
       <CssBaseline />
-      <Header />
       <Container
         maxWidth="lg"
         sx={{
-          mt: 2,
-          backgroundImage: `url(${backimg})`,
-          backgroundPosition: "center",
+          mt: 1,
+          backgroundImage: `linear-gradient(270deg,#0001,#000), url(${backimg})`,
+          backgroundPosition: "90% 70%",
+          backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           boxShadow: "8px 8px 4px #222",
-          p: 1,
-          borderRadius: "4px",
+          pb: 1,
+          borderRadius: "5px",
         }}
       >
+        <CustomizedSwitches />
         <CalculatorBase
           elevation={3}
           sx={{
-            width: { xs: "100%", md: "42%" },
+            width: { xs: "100%", md: "40%" },
             marginX: "auto",
             boxShadow: "8px 8px 2px #000",
-            borderRadius: "7%",
-            p: 7,
+            borderRadius: "5%",
+            p: 5,
+            py: 8,
           }}
         >
           <Grid container spacing={1}>
@@ -146,25 +147,12 @@ function App() {
               </OutputContainer>
             </Grid>
             <Grid item container columnSpacing={1}>
-              <OperationBtn
-                operation={"AC"}
-                selectOperation={handleClear}
-                selectedOperation={operation}
-              />
-              <OperationBtn
-                operation={"C"}
-                selectOperation={handleDel}
-                selectedOperation={operation}
-              />
-              <OperationBtn
-                operation={"%"}
-                selectOperation={handlePercent}
-                selectedOperation={operation}
-              />
+              <OperationBtn operation={"AC"} selectOperation={handleClear} />
+              <OperationBtn operation={"C"} selectOperation={handleDel} />
+              <OperationBtn operation={"%"} selectOperation={handlePercent} />
               <OperationBtn
                 operation={"÷"}
                 selectOperation={handleSelectOperation}
-                selectedOperation={operation}
               />
             </Grid>
             <Grid item container columnSpacing={1}>
@@ -174,7 +162,6 @@ function App() {
               <OperationBtn
                 operation={"*"}
                 selectOperation={handleSelectOperation}
-                selectedOperation={operation}
               />
             </Grid>
             <Grid item container columnSpacing={1}>
@@ -184,7 +171,6 @@ function App() {
               <OperationBtn
                 operation={"-"}
                 selectOperation={handleSelectOperation}
-                selectedOperation={operation}
               />
             </Grid>
             <Grid item container columnSpacing={1}>
@@ -195,7 +181,6 @@ function App() {
               <OperationBtn
                 operation={"+"}
                 selectOperation={handleSelectOperation}
-                selectedOperation={operation}
               />
             </Grid>
             <Grid item container columnSpacing={1}>

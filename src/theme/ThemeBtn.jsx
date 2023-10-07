@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-  width: 65,
+  width: 60,
   height: 35,
   padding: 8,
   "& .MuiSwitch-switchBase": {
@@ -23,14 +23,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+        backgroundColor: theme.palette.mode === "dark" ? "#fff" : "#aab4be",
       },
     },
   },
   "& .MuiSwitch-thumb": {
-    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#000",
-    width: 34,
-    height: 34,
+    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#333",
+    width: 30,
+    height: 30,
     "&:before": {
       content: "''",
       position: "absolute",
@@ -59,7 +59,7 @@ export default function ThemeButton() {
     <FormGroup>
       <FormControlLabel
         control={<MaterialUISwitch defaultChecked onClick={toggleTheme} />}
-        sx={{ m: 1, textAlign: "center", color: "white" }}
+        sx={{ textAlign: "center", color: "white" }}
         label={theme === "light" ? "Dark Theme" : "light Theme"}
       />
     </FormGroup>
