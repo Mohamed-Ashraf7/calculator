@@ -16,4 +16,5 @@ const OperationBtn = ({ operation, selectOperation }) => {
     </Grid>
   );
 };
+
 export default OperationBtn;

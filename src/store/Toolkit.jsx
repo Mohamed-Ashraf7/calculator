@@ -72,7 +72,6 @@ export const calculate = (state) => {
   }
   return result;
 };
-
 export const {
   setPrevValue,
   setCurrentValue,

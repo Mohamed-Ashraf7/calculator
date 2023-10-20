@@ -1,10 +1,10 @@
 import { Button, Grid } from "@mui/material";
-
 const DigitButton = ({ digit, enterDigit }) => {
   return (
     <Grid item xs={3}>
       <Button
         sx={{
+          backgroundColor:"#000",
           fontSize: "1rem",
           borderRadius: "7px",
           width: "100%",
