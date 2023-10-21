@@ -2,8 +2,8 @@ import {
   Paper,
   styled,
 } from "@mui/material";
-import backimg from "../img/6.jpg";
-import backimg2 from "../img/3.jpg";
+import backimg from "../img/6.webp";
+import backimg2 from "../img/3.webp";
 export const OutputContainer = styled(`div`)(({ theme }) => ({
   width: "100%",
   textAlign: "right",
@@ -13,7 +13,7 @@ export const OutputContainer = styled(`div`)(({ theme }) => ({
   marginBottom: "9px",
   height: "2.6em",
   padding: theme.spacing(1),
-  fontSize: "2.8em",
+  fontSize: "2.7em",
   overflow: "hidden",
   backgroundColor: "#f2f2f2",
 }));
@@ -41,12 +41,12 @@ export const main = {height:"100vh",
   py: 2,
 };
 export const calcStyle = {
-   backgroundImage: `linear-gradient(90deg,#0001,#0009), url(${backimg2})`,
-            width: { xs: "100%",md:"50%" , lg: "33%" },
-            marginX: "auto",
-            borderBottom: "6px solid #455a64",
-            boxShadow: "8px 8px 2px #000",
-            borderRadius: "6%",
-            p: 6,
-            py: 9,
+ backgroundImage: `linear-gradient(90deg,#0001,#0009), url(${backimg2})`,
+ width: { xs: "100%",md:"50%" , lg: "33%" },
+ marginX: "auto",
+ borderBottom: "6px solid #455a64",
+ boxShadow: "8px 8px 2px #000",
+ borderRadius: "6%",
+ p: 6,
+ py: 9,
 }
